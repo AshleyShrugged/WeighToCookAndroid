@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name">WeighToCook</string>
+    <string name="app_name">Weigh To Cook</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_search_results">SearchResultsActivity</string>
-    <string name="title_activity_dinner_category">DinnerCategoryActivity</string>
+    <string name="title_activity_search_results">Search Results</string>
+    <string name="title_activity_dinner_category">Dinner Recipes</string>
 </resources>
