@@ -20,6 +20,10 @@
             android:name=".SearchResultsActivity"
             android:label="@string/title_activity_search_results" >
         </activity>
+        <activity
+            android:name=".DinnerCategoryActivity"
+            android:label="@string/title_activity_dinner_category" >
+        </activity>
     </application>
 
 </manifest>

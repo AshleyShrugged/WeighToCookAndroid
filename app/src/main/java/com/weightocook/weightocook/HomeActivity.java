@@ -49,5 +49,8 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra(SEARCH_RESULTS, searchResultsStr); // this is packaging the contents of editText for use in the new activity
         startActivity(intent);
     }
-
+    public void selectDinner(View view){
+        Intent intent = new Intent(this, DinnerCategoryActivity.class);
+        startActivity(intent);
+    }
 }
