@@ -12,13 +12,13 @@
         android:layout_alignParentStart="true"
         android:inputType="text"
         android:hint="Search for a recipe..."
-        android:layout_toStartOf="@+id/searchButton"
-        android:layout_toLeftOf="@+id/searchButton" />
+        android:layout_toStartOf="@+id/searchButtonHome"
+        android:layout_toLeftOf="@+id/searchButtonHome" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchButton"
+        android:id="@+id/searchButtonHome"
         android:layout_above="@+id/breakfastButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
