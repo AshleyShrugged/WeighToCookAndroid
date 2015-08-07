@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 public class HomeActivity extends AppCompatActivity {
+
+    /** for recipeSearch method: "For the next activity to query the extra data, you should define the key for your intent's extra using a public constant" */
+    public final static String SEARCH_RESULTS = "com.weightocook.weightocook.SEARCH_RESULTS";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,9 @@ public class HomeActivity extends AppCompatActivity {
     /** Called when the user clicks the Search button */
     public void recipeSearch(View view){
         Intent intent = new Intent(this, SearchResultsActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editSearch); //gets the EditText element from the search box
+        String searchResultsStr = editText.getText().toString(); // turn the search results into a string for use in next method
+        intent.putExtra(SEARCH_RESULTS, searchResultsStr); // this is packaging the contents of editText for use in the new activity
         startActivity(intent);
     }
 

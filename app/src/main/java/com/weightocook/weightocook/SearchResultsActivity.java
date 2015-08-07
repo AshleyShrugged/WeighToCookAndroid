@@ -1,16 +1,26 @@
 package com.weightocook.weightocook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
 
 public class SearchResultsActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_search_results);
+        /** "You can get the Intent that started your activity by calling getIntent() and retrieve the data contained within the intent." */
+        Intent intent = getIntent();
+        String searchResultsStr = intent.getStringExtra(HomeActivity.SEARCH_RESULTS);
+        TextView displayResults = (TextView) findViewById(R.id.displayResults);
+        displayResults.setText("Results: " + searchResultsStr);
     }
 
     @Override
@@ -34,4 +44,5 @@ public class SearchResultsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
