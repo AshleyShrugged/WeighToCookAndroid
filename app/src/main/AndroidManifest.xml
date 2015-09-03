@@ -24,6 +24,10 @@
             android:name=".DinnerCategoryActivity"
             android:label="@string/title_activity_dinner_category" >
         </activity>
+        <activity
+            android:name=".DessertsCategoryActivity"
+            android:label="@string/title_activity_desserts_category" >
+        </activity>
     </application>
 
 </manifest>

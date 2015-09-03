@@ -90,6 +90,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/drinksButton" />
+        android:layout_below="@+id/drinksButton"
+        android:onClick="selectDesserts"/>
 
 </RelativeLayout>

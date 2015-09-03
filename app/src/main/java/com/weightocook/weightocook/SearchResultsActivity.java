@@ -20,7 +20,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String searchResultsStr = intent.getStringExtra(HomeActivity.SEARCH_RESULTS);
         TextView displayResults = (TextView) findViewById(R.id.displayResults);
-        displayResults.setText("Results: " + searchResultsStr);
+        displayResults.setText("Showing results for: " + searchResultsStr);
     }
 
     @Override
