@@ -17,33 +17,39 @@ import android.widget.TextView;
 public class DinnerCategoryActivity extends AppCompatActivity{
 
     public final static String SEARCH_RESULTS = "com.weightocook.weightocook.SEARCH_RESULTS";
+    ListView dinnerListView;
+    ArrayAdapter<String> myAdapter;
+    String [] dinnerRecipeList = {"Baked Teriyaki Chicken","Slow Cooker Beef Pot Roast",
+            "Brown Sugar Meatloaf","Broiled Tilapia Parmesan", "Chicken Cordon Bleu"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dinner_category);
-        String [] dinnerRecipeList = {"Baked Teriyaki Chicken","Slow Cooker Beef Pot Roast",
-                "Brown Sugar Meatloaf","Broiled Tilapia Parmesan", "Chicken Cordon Bleu"};
+        dinnerListView = (ListView) findViewById(R.id.listView);
 
-
-        ArrayAdapter<String> myAdapter = new ArrayAdapter <String> (
+        myAdapter = new ArrayAdapter <String> (
                 this,
                 android.R.layout.simple_list_item_1,
                 dinnerRecipeList);
 
-        ListView dinnerListView = (ListView) findViewById(R.id.listView);
+
         dinnerListView.setAdapter(myAdapter);
 
-        AdapterView.OnItemClickListener mMessageClickedHandler =
-                new AdapterView.OnItemClickListener () {
-                    public void onItemClick (AdapterView parent,
-                                             View v,
-                                             int position,
-                                             long id){
-                        TextView myData = (TextView) v.findViewById(R.id.listView);
-                        myData.setText("Selected");
+        dinnerListView.setOnItemClickListener (new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    if (position == 0)
+                    {
+                        Intent intent = new Intent(view.getContext(), BakedTeriyakiChickenActivity.class);
+                        startActivity(intent);
                     }
-                };
+
+
+            }
+        } );
     }
 
     @Override
