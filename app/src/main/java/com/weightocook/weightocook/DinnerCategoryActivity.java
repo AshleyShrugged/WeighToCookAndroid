@@ -1,15 +1,14 @@
 package com.weightocook.weightocook;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.internal.widget.AdapterViewCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,9 +16,7 @@ import android.widget.TextView;
 public class DinnerCategoryActivity extends AppCompatActivity{
 
     public final static String SEARCH_RESULTS = "com.weightocook.weightocook.SEARCH_RESULTS";
-    ListView dinnerListView;
-    ArrayAdapter<String> myAdapter;
-    String [] dinnerRecipeList = {"Baked Teriyaki Chicken","Slow Cooker Beef Pot Roast",
+    String [] dinnerRecipeList = new String[]{"Baked Teriyaki Chicken","Slow Cooker Beef Pot Roast",
             "Brown Sugar Meatloaf","Broiled Tilapia Parmesan", "Chicken Cordon Bleu"};
 
 
@@ -27,9 +24,9 @@ public class DinnerCategoryActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dinner_category);
-        dinnerListView = (ListView) findViewById(R.id.listView);
+        ListView dinnerListView = (ListView)findViewById(R.id.dinnerListView);
 
-        myAdapter = new ArrayAdapter <String> (
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 dinnerRecipeList);
@@ -43,8 +40,12 @@ public class DinnerCategoryActivity extends AppCompatActivity{
 
                     if (position == 0)
                     {
-                        Intent intent = new Intent(view.getContext(), BakedTeriyakiChickenActivity.class);
+
+                        Intent intent = new Intent(DinnerCategoryActivity.this, BakedTeriyakiChickenActivity.class);
                         startActivity(intent);
+
+                        TextView testTextView = (TextView)findViewById(R.id.testTextView);
+                        testTextView.setText("BTC Clicked");
                     }
 
 

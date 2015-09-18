@@ -31,6 +31,10 @@
             android:name=".DessertsCategoryActivity"
             android:label="@string/title_activity_desserts_category" >
         </activity>
+        <activity
+            android:name=".BakedTeriyakiChickenActivity"
+            android:label="@string/title_activity_baked_teriyaki_chicken" >
+        </activity>
     </application>
 
 </manifest>
