@@ -44,8 +44,6 @@ public class DinnerCategoryActivity extends AppCompatActivity{
                         Intent intent = new Intent(DinnerCategoryActivity.this, BakedTeriyakiChickenActivity.class);
                         startActivity(intent);
 
-                        TextView testTextView = (TextView)findViewById(R.id.testTextView);
-                        testTextView.setText("BTC Clicked");
                     }
 
 
