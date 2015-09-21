@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 /**
  * Created by Micolichek's on 9/20/2015.
  */
+ 
 public class Splash_screen extends Activity {
     private Thread mSplashThread;
 
