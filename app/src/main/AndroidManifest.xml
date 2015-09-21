@@ -40,6 +40,22 @@
             android:name=".BakedTeriyakiChickenActivity"
             android:label="@string/title_activity_baked_teriyaki_chicken" >
         </activity>
+        <activity
+            android:name=".BakedTeriyakiChickenStepOneActivity"
+            android:label="Baked Teriyaki Chicken: Step One" >
+        </activity>
+        <activity
+            android:name=".BakedTeriyakiChickenStepTwoActivity"
+            android:label="Baked Teriyaki Chicken: Step Two" >
+        </activity>
+        <activity
+            android:name=".BakedTeriyakiChickenStepThreeActivity"
+            android:label="Baked Teriyaki Chicken: Step Three" >
+        </activity>
+        <activity
+            android:name=".BakedTeriyakiChickenStepFourActivity"
+            android:label="Baked Teriyaki Chicken: Step Four" >
+        </activity>
     </application>
 
 </manifest>

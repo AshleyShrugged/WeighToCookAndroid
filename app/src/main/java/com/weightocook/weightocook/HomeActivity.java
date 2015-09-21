@@ -76,8 +76,8 @@ public class HomeActivity extends AppCompatActivity {
     }
     /** Called when the user taps the Desserts button */
     public void selectDesserts(View view){
-        Intent intent2 = new Intent(this, DessertsCategoryActivity.class);
-        startActivity(intent2);
+        Intent intent = new Intent(this, DessertsCategoryActivity.class);
+        startActivity(intent);
     }
 
     /** Checks whether Bluetooth is supported and enabled - requests to enable if not */

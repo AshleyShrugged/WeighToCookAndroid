@@ -6,6 +6,5 @@
     <string name="title_activity_dinner_category">Dinner Recipes</string>
     <string name="title_activity_desserts_category">Dessert Recipes</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_baked_teriyaki_chicken">BakedTeriyakiChickenActivity</string>
+    <string name="title_activity_baked_teriyaki_chicken">Baked Teriyaki Chicken</string>
 </resources>

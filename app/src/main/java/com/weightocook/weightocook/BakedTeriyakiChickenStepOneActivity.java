@@ -44,7 +44,7 @@ public class BakedTeriyakiChickenStepOneActivity extends AppCompatActivity {
     public void selectNextStep(View view){
         Intent intent = new Intent(this, BakedTeriyakiChickenStepTwoActivity.class);
         startActivity(intent);
-    }
+        }
     }
 
 
