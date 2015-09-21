@@ -20,18 +20,6 @@ public class BakedTeriyakiChickenActivity extends DinnerCategoryActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_btc);
 
-        /**
-        btcIngredientListView = (ListView) findViewById(R.id.dinnerListView);
-
-        myAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                btcIngredientList);
-
-
-        btcIngredientListView.setAdapter(myAdapter);
-
-*/
     }
 
     @Override
@@ -54,5 +42,11 @@ public class BakedTeriyakiChickenActivity extends DinnerCategoryActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    
+    /** Called when the user taps the Start Cooking button */
+    public void selectStartCooking(View view){
+        Intent intent = new Intent(this, BakedTeriyakiChickenStepOneActivity.class);
+        startActivity(intent);
     }
 }
