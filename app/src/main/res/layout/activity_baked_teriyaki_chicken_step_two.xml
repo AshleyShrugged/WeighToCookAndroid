@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Preheat oven to 425 degrees F or 220 degrees C"
+        android:text="Start adding cornstarch! (Between this and the next step button we need space for the app to guide the user to add more, less, stop, etc)"
         android:id="@+id/textView18" />
 
     <Button

@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="In a small saucepan over low heat, combine the cornstarch, cold watersugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently until sauce thickens and bubbles"
+        android:text="Preheat oven to 425 degrees F (220 degrees C). Set small saucepan on scale. Tap &apos;next step&apos; button with pan on scale."
         android:id="@+id/textView16" />
 
     <Button
