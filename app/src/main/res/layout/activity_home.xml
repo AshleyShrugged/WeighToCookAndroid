@@ -111,4 +111,45 @@
         android:onClick="selectDesserts"
         android:background="#FFF"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open"
+        android:id="@+id/button2"
+        android:layout_above="@+id/button3"
+        android:layout_alignRight="@+id/dessertsButton"
+        android:layout_alignEnd="@+id/dessertsButton"
+        android:onClick="openBluetooth"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/dessertsButton"
+        android:layout_alignEnd="@+id/dessertsButton"
+        android:onClick="closeBluetooth"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Bluetooth Connection:"
+        android:id="@+id/textView27"
+        android:layout_above="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2"
+        android:textColor="#010ab5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Bluetooth Status"
+        android:id="@+id/label"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#010ab5" />
+
 </RelativeLayout>

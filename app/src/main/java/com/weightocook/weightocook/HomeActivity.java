@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     /** for recipeSearch method: "For the next activity to query the extra data, you should define the key for your intent's extra using a public constant" */
     public final static String SEARCH_RESULTS = "com.weightocook.weightocook.SEARCH_RESULTS";
     private final static int REQUEST_ENABLE_BT = 1;
+    TextView btStatusDisplay;
     BluetoothDevice mmDevice;
     BluetoothSocket mmSocket;
     OutputStream mmOutputStream;
@@ -40,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        btStatusDisplay = (TextView) findViewById(R.id.label);
     }
 
     @Override
@@ -97,9 +100,9 @@ public class HomeActivity extends AppCompatActivity {
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             // Device does not support Bluetooth
-            //btStatusDisplay.setText("Device does not support Bluetooth");
+            btStatusDisplay.setText("Device does not support Bluetooth");
         }
-        //btStatusDisplay.setText("Trying to connect...");
+        btStatusDisplay.setText("Trying to connect...");
 
         /** Pops up request to enable if found not enabled */
         if (!mBluetoothAdapter.isEnabled()) {
@@ -112,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
             for (BluetoothDevice device : pairedDevices) {
                 if (device.getName().equals("BLUE")) {
                     mmDevice = device;
-                    //btStatusDisplay.setText("Bluetooth device found");
+                    btStatusDisplay.setText("Bluetooth device found");
                     break;
                 }
             }
@@ -124,7 +127,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     public void openBluetooth(View view) throws IOException {
         if(mmDevice == null){
-            //btStatusDisplay.setText("mmDevice is null");
+            btStatusDisplay.setText("mmDevice is null");
         }
         else {
             UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Standard SerialPortService ID
@@ -135,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
 
             beginListenForData();
 
-            //btStatusDisplay.setText("Bluetooth Connection Opened");
+            btStatusDisplay.setText("Bluetooth Connection Opened");
         }
     }
 
@@ -220,7 +223,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void sendCommand(String command) throws IOException {
         mmOutputStream.write(command.getBytes());
-        //btStatusDisplay.setText("Command " + command + " sent.");
+        btStatusDisplay.setText("Command " + command + " sent.");
     }
 
     public void closeBluetooth(View view) throws IOException {
@@ -228,6 +231,7 @@ public class HomeActivity extends AppCompatActivity {
         mmOutputStream.close();
         mmInputStream.close();
         mmSocket.close();
+        btStatusDisplay.setText("Bluetooth connection closed.");
     }
 
     public void setCurrentWeight(int integer){
