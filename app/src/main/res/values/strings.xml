@@ -11,6 +11,5 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_blueberry_cobbler_steps">Blueberry Cobbler</string>
-    <string name="title_activity_blueberry_cobbler_bluetooth_steps">BlueberryCobblerBluetoothSteps
-    </string>
+    <string name="title_activity_blueberry_cobbler_bluetooth_steps">Blueberry Cobbler</string>
 </resources>

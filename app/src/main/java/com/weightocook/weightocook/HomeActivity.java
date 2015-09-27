@@ -25,18 +25,6 @@ public class HomeActivity extends AppCompatActivity {
 
     /** for recipeSearch method: "For the next activity to query the extra data, you should define the key for your intent's extra using a public constant" */
     public final static String SEARCH_RESULTS = "com.weightocook.weightocook.SEARCH_RESULTS";
-    private final static int REQUEST_ENABLE_BT = 1;
-    TextView btStatusDisplay;
-    BluetoothDevice mmDevice;
-    BluetoothSocket mmSocket;
-    OutputStream mmOutputStream;
-    InputStream mmInputStream;
-    Thread workerThread;
-    byte[] readBuffer;
-    int readBufferPosition;
-    volatile boolean stopWorker;
-    int currentWeight = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //findBluetooth();
     }
 
     @Override

@@ -6,8 +6,23 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.weightocook.weightocook.BlueberryCobblerBluetoothSteps">
 
-    <TextView android:text="Bluetooth time." android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/book" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="BT Status: "
+        android:id="@+id/textView34"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/cobblerBtStatus"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView34"
+        android:layout_toEndOf="@+id/textView34" />
 </RelativeLayout>
