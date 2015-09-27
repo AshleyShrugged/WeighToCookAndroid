@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Preheat oven to 425 degrees F (220 degrees C). Set small saucepan on scale. Tap &apos;next step&apos; button with pan on scale."
+        android:text="Preheat oven to 425 degrees F (220 degrees C). Set small saucepan on scale. Tap &apos;next step&apos; button with empty pan on scale."
         android:id="@+id/textView16" />
 
     <Button

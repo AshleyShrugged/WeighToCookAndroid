@@ -10,20 +10,17 @@
         android:icon="@drawable/teamd_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-
-        <activity android:name="Splash_screen">
+        <activity android:name=".Splash_screen" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name" >
         </activity>
-
         <activity
             android:name=".SearchResultsActivity"
             android:label="@string/title_activity_search_results" >
@@ -55,6 +52,18 @@
         <activity
             android:name=".BakedTeriyakiChickenStepFourActivity"
             android:label="Baked Teriyaki Chicken: Step Four" >
+        </activity>
+        <activity
+            android:name=".BlueberryCobblerActivity"
+            android:label="@string/title_activity_blueberry_cobbler" >
+        </activity>
+        <activity
+            android:name=".BlueberryCobblerSteps"
+            android:label="@string/title_activity_blueberry_cobbler_steps" >
+        </activity>
+        <activity
+            android:name=".BlueberryCobblerBluetoothSteps"
+            android:label="@string/title_activity_blueberry_cobbler_bluetooth_steps" >
         </activity>
     </application>
 

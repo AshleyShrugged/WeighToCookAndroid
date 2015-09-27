@@ -7,4 +7,10 @@
     <string name="title_activity_desserts_category">Dessert Recipes</string>
 
     <string name="title_activity_baked_teriyaki_chicken">Baked Teriyaki Chicken</string>
+    <string name="title_activity_blueberry_cobbler">Blueberry Cobbler</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_blueberry_cobbler_steps">Blueberry Cobbler</string>
+    <string name="title_activity_blueberry_cobbler_bluetooth_steps">BlueberryCobblerBluetoothSteps
+    </string>
 </resources>

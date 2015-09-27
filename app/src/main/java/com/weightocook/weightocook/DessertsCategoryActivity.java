@@ -1,16 +1,50 @@
 package com.weightocook.weightocook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class DessertsCategoryActivity extends AppCompatActivity {
+
+
+    String [] dessertsRecipeList = new String[]{"Blueberry Cobbler","Pumpkin Roll",
+            "Chocolate Chip Cookies","Black Magic Cake", "Fudge Brownies"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desserts_category);
+        ListView dessertsListView = (ListView)findViewById(R.id.dessertsListView);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                dessertsRecipeList);
+
+
+        dessertsListView.setAdapter(myAdapter);
+
+        dessertsListView.setOnItemClickListener (new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0)
+                {
+
+                    Intent intent = new Intent(DessertsCategoryActivity.this, BlueberryCobblerActivity.class);
+                    startActivity(intent);
+
+                }
+
+
+            }
+        } );
     }
 
     @Override
