@@ -65,6 +65,10 @@
             android:name=".BlueberryCobblerBluetoothSteps"
             android:label="@string/title_activity_blueberry_cobbler_bluetooth_steps" >
         </activity>
+        <activity
+            android:name=".BlueberryCobblerFinalStep"
+            android:label="@string/title_activity_blueberry_cobbler_final_step" >
+        </activity>
     </application>
 
 </manifest>
