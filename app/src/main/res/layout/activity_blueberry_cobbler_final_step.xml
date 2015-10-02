@@ -6,7 +6,32 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.weightocook.weightocook.BlueberryCobblerFinalStep">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\nPour the mixing bowl full of batter over the melted butter. Scatter the 4 cups of blueberries over the batter.\n\nBake this in the 350 degree oven for about 1 hour, or until a toothpick inserted into the center comes out clean."
+        android:id="@+id/textView35"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="      You&apos;re done! \nEnjoy your cobbler!"
+        android:id="@+id/textView37"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="share on facebook"
+        android:id="@+id/button3"
+        android:layout_below="@+id/textView37"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 
 </RelativeLayout>
