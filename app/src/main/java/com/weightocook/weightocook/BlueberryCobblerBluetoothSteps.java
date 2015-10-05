@@ -31,6 +31,7 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
     TextView flourAddedDisplay;
     TextView sugarAddedDisplay;
     TextView milkAddedDisplay;
+    TextView rawDataDisplay;
     BluetoothDevice mmDevice;
     BluetoothSocket mmSocket;
     OutputStream mmOutputStream;
@@ -42,6 +43,8 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
     int currentWeight = 0;
     int bowlWeight = 0;
     boolean nextStepReady = false;
+    boolean weighBowl = true;
+    int ingredientChosen = 0;
 
     /** Cups to grams
      * 1 cup self-rising flour = 125 grams
@@ -58,6 +61,7 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         flourAddedDisplay = (TextView)findViewById(R.id.flourAddedDisplay);
         sugarAddedDisplay = (TextView)findViewById(R.id.sugarAddedDisplay);
         milkAddedDisplay = (TextView)findViewById(R.id.milkAddedDisplay);
+        rawDataDisplay = (TextView)findViewById(R.id.testingDisplay);
         findBluetooth();
     }
 
@@ -171,35 +175,101 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
                                     handler.post(new Runnable() {
                                         public void run() {
                                             // handles "data"
-                                            if (data.charAt(0) == '+'){
+                                            if (data.charAt(0) == '+') {
                                                 // it's a weight value
-                                                //rawDataDisplay.setText(data);
+                                                rawDataDisplay.setText(data);
                                                 Integer intWeight = parseInt(data);
                                                 //interpretedDataDisplay.setText(String.valueOf(intWeight));
                                                 setCurrentWeight(intWeight);
+                                                if (weighBowl){setBowlWeight(intWeight);}
+                                                switch(ingredientChosen){
+                                                    case 1:
+                                                        //flour
+                                                        weighBowl = false;
+                                                        miscDisplay.setText("Add flour!");
+                                                        if (currentWeight-bowlWeight < FLOUR_GOAL) {
+                                                            //TODO: add margin of error
+                                                            int flourPercentage;
+                                                            flourPercentage = (int)(Math.round((currentWeight-bowlWeight)*100.0/FLOUR_GOAL));
+                                                            flourAddedDisplay.setText("Flour: " + (String.valueOf(flourPercentage)) + "%");
+                                                        }
+                                                        else{
+                                                            miscDisplay.setText("Good on flour! Choose next ingredient.");
+                                                            flourAddedDisplay.setText("Flour: 100%");
+                                                            ingredientChosen = 0;
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        //sugar
+                                                        int previousWeight = bowlWeight + FLOUR_GOAL;
+                                                        miscDisplay.setText("Add sugar!");
+                                                        if((currentWeight - previousWeight) < SUGAR_GOAL){
+                                                            int sugarPercentage;
+                                                            sugarPercentage = (int)(Math.round((currentWeight - previousWeight)*100.0/SUGAR_GOAL));
+                                                            sugarAddedDisplay.setText("Sugar: " + (String.valueOf(sugarPercentage)) + "%");
+                                                        }
+                                                        else{
+                                                            miscDisplay.setText("Done with sugar! Choose next ingredient.");
+                                                            sugarAddedDisplay.setText("Sugar: 100%");
+                                                            ingredientChosen = 0;
+                                                        }
+                                                        break;
+                                                    case 3:
+                                                        //milk
+                                                        int previousWeight2 = bowlWeight + FLOUR_GOAL + SUGAR_GOAL;
+                                                        miscDisplay.setText("Add milk!");
+                                                        if((currentWeight - previousWeight2) < MILK_GOAL){
+                                                            int milkPercentage;
+                                                            milkPercentage = (int)(Math.round((currentWeight - previousWeight2)*100.0/MILK_GOAL));
+                                                            milkAddedDisplay.setText("Milk: " +(String.valueOf(milkPercentage)) + "%");
+                                                        }
+                                                        else{
+                                                            miscDisplay.setText("Nice! Everything's added. Tap the Next Step button to continue.");
+                                                            milkAddedDisplay.setText("Milk: 100%");
+                                                            ingredientChosen = 0;
+                                                            nextStepReady = true;
+                                                        }
+                                                        break;
+                                                }
+/**
+                                                if (weighBowl){setBowlWeight(intWeight);}
+                                                if (addingFlour){
+                                                    weighBowl = false;
+                                                    miscDisplay.setText("Add flour!");
+                                                    if (currentWeight-bowlWeight < FLOUR_GOAL) {
+                                                        //TODO: add margin of error
+                                                        int flourPercentage;
+                                                        flourPercentage = (int)(Math.round((currentWeight-bowlWeight)*100.0/FLOUR_GOAL));
+                                                        flourAddedDisplay.setText("Flour: " + (String.valueOf(flourPercentage)) + "%");
+                                                    }
+                                                    else{
+                                                        miscDisplay.setText("Good! Choose next ingredient.");
+                                                        flourAddedDisplay.setText("Flour: 100%");
+                                                    }
+                                                }*/
 
                                             }
                                             else { // it's a command
                                                 switch (data) {
                                                     case "@ACKON": // Acknowledge @MONON# successfully turned on weight monitoring
                                                         // TODO: do stuff
-                                                        //rawDataDisplay.setText(data);
+                                                        rawDataDisplay.setText(data);
                                                         break;
                                                     case "@ACKOFF": // Acknowledge @MONOFF# successfully turned off weight monitoring
                                                         // TODO: do stuff
-                                                        //rawDataDisplay.setText(data);
+                                                        rawDataDisplay.setText(data);
                                                         break;
                                                     case "@ACKPWRDN": // Acknowledge @PWRDN# successfully turned off power
                                                         // TODO: do stuff
-                                                        //rawDataDisplay.setText(data);
+                                                        rawDataDisplay.setText(data);
                                                         break;
                                                     case "@ACKPWRUP": // Acknowledge @PWRUP# successfully powered on scale
                                                         // TODO: do stuff
-                                                        //rawDataDisplay.setText(data);
+                                                        rawDataDisplay.setText(data);
                                                         break;
                                                     case "@RESET": // Scale just powered up; connect Bluetooth
                                                         // TODO: do stuff
-                                                        //rawDataDisplay.setText(data);
+                                                        rawDataDisplay.setText(data);
                                                         findBluetooth();
                                                         break;
                                                 }
@@ -240,12 +310,9 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         currentWeight = integer;
     }
 
+    public void setBowlWeight(int integer) {bowlWeight = integer;}
+/**
     public void flourTapped(View view){
-        try {
-            sendCommand("@MONON#");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         bowlWeight = currentWeight;
         miscDisplay.setText("Add flour!");
         while (currentWeight-bowlWeight < FLOUR_GOAL) {
@@ -256,7 +323,21 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         }
         miscDisplay.setText("Good! Choose next ingredient.");
     }
+*/
 
+    public void flourTapped(View view){
+        weighBowl = false;
+        ingredientChosen = 1;
+    }
+
+    public void sugarTapped(View view){
+        ingredientChosen = 2;
+    }
+
+    public void milkTapped(View view){
+        ingredientChosen = 3;
+    }
+/**
     public void sugarTapped(View view){
         int previousWeight = currentWeight;
         miscDisplay.setText("Add sugar!");
@@ -268,6 +349,7 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         miscDisplay.setText("Good! Choose next ingredient.");
     }
 
+
     public void milkTapped(View view){
         int previousWeight = currentWeight;
         miscDisplay.setText("Add milk!");
@@ -278,12 +360,8 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         }
         miscDisplay.setText("Nice! You're ready for the next step! Tap button to continue.");
         nextStepReady = true;
-        try {
-            sendCommand("@MONOFF#");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+ */
 
     public void selectNextStep(View view){
         if (nextStepReady){
@@ -296,6 +374,21 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
         }
     }
 
+    public void selectMonOn(View view){
+        try {
+            sendCommand("@MONON#");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void selectMonOff(View view){
+        try {
+            sendCommand("@MONOFF#");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
