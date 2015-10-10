@@ -30,7 +30,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_search_black_24dp"
-        android:onClick="recipeSearch" />
+        android:onClick="recipeSearch"
+        android:background="#4682B4" />
 
 
     <ListView

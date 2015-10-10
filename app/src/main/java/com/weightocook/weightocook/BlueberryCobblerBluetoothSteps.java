@@ -145,6 +145,12 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
             beginListenForData();
 
             btStatusDisplay.setText("Open");
+
+            try {
+                sendCommand("@MONON#");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -227,6 +233,11 @@ public class BlueberryCobblerBluetoothSteps extends AppCompatActivity {
                                                             miscDisplay.setText("Nice! Everything's added. Tap the Next Step button to continue.");
                                                             milkAddedDisplay.setText("Milk: 100%");
                                                             ingredientChosen = 0;
+                                                            try {
+                                                                sendCommand("@MONOFF#");
+                                                            } catch (IOException e) {
+                                                                e.printStackTrace();
+                                                            }
                                                             nextStepReady = true;
                                                         }
                                                         break;
